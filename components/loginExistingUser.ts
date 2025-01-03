@@ -5,9 +5,14 @@ const {config} = require ("../config/config.spec")
 const loginExistingUser = async (page) => {
 
   await page.goto(config.globalUrlEn);
-  await page.getByRole("textbox").click();
-  await page.getByRole("textbox").fill("NiiloNikoNiklasNikiJaNikolai");
-  await page.getByRole("button", { name: "Submit" }).click();
+
+  const entryPassword = await page.getByRole("textbox", {name : "magicPhrase"})
+    if (entryPassword.isVisible()) {
+      await page.getByRole("textbox").click();
+      await page.getByRole("textbox").fill("NiiloNikoNiklasNikiJaNikolai");
+      await page.getByRole("button", { name: "Submit" }).click();
+}
+
   await page.getByRole("button", { name: "Allow cookies" }).click();
   await page.getByRole("link", { name: "Account" }).click();
   await page.getByRole("link", { name: "Log in" }).click();
