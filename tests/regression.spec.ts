@@ -4,6 +4,8 @@ const {loginExistingUser} = require ("../components/loginExistingUser.ts")
 const {logoutUser} = require ("../components/logoutUser.ts")
 const {switchLanguageToEn} = require ("../components/switchLanguageToEn.ts")
 const {switchLanguageToFi} = require ("../components/switchLanguageToFi.ts")
+const {registerNewUser} = require ("../components/registerNewUser.ts")
+
 
 
 
@@ -29,6 +31,11 @@ for (var i = 0; i < testsWillBeRunXTimes; i++) {
     await switchLanguageToEn(page)
    })
 
-   test.only(`Change language to finnish, ${testNumber}`, async ({ page }) => {
+   test(`Change language to finnish, ${testNumber}`, async ({ page }) => {
     await switchLanguageToFi(page)
-   })}
+   })
+
+   test.only(`Register new user, ${testNumber}`, async ({ page }) => {
+    await registerNewUser(page)
+  })
+  }
