@@ -18,9 +18,9 @@ const switchLanguageToEn = async (page) => {
         await page.getByRole("button", { name: "Hyväksy evästeet" }).click();
     }
 
-    await page.getByRole('button', { name: 'Menu' }).click();
+    await page.getByRole('button', { name: 'Avaa päävalikko' }).click();
     await page.getByRole('button', { name: 'English' }).click();
-    await page.getByRole('button', { name: 'Close' }).click();
+    await page.getByRole('button', { name: 'Close', exact: true }).click();
     await expect(page).toHaveURL(/.*en/);
 
 };

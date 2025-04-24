@@ -5,9 +5,6 @@ const {logoutUser} = require ("../components/logoutUser.ts")
 const {switchLanguageToEn} = require ("../components/switchLanguageToEn.ts")
 const {switchLanguageToFi} = require ("../components/switchLanguageToFi.ts")
 
-
-
-
 const testsWillBeRunXTimes = 1; //change this to run all tests more then once
 
 test.beforeEach(async ({ page }) => {
@@ -29,6 +26,6 @@ for (var i = 0; i < testsWillBeRunXTimes; i++) {
     await switchLanguageToEn(page)
    })
 
-   test.only(`Change language to finnish, ${testNumber}`, async ({ page }) => {
+   test(`Change language to finnish, ${testNumber}`, async ({ page }) => {
     await switchLanguageToFi(page)
    })}

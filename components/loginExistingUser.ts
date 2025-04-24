@@ -14,7 +14,7 @@ const loginExistingUser = async (page) => {
 }
 
   await page.getByRole("button", { name: "Allow cookies" }).click();
-  await page.getByRole("link", { name: "Account" }).click();
+  await page.getByRole('link', { name: 'Account', exact: true }).click();
   await page.getByRole("link", { name: "Log in" }).click();
   await page.getByPlaceholder("Fill in an email address").click();
   await page
@@ -27,7 +27,7 @@ const loginExistingUser = async (page) => {
   await page.getByLabel("Email or phone").fill("detestrr");
   await page.getByLabel("Email or phone").press("Enter");
   await page.getByLabel("Enter your password").click();
-  await page.getByLabel("Enter your password").fill('qweqweqwe1"');
+  await page.getByLabel("Enter your password").fill('qweqwe1"');
   await page.getByLabel("Enter your password").press("Enter");
   await page
     .getByText("Sign in to newilbau-dev requested at")
@@ -41,7 +41,9 @@ const loginExistingUser = async (page) => {
   const page1 = await page1Promise;
   await page.waitForTimeout(3000);
   await expect(page1).toHaveURL(/.*account/);
+  // await page1.pause()
   return (page1)
+  
 };
 
 module.exports = {
