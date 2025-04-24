@@ -4,6 +4,8 @@ const {loginExistingUser} = require ("../components/loginExistingUser.ts")
 const {logoutUser} = require ("../components/logoutUser.ts")
 const {switchLanguageToEn} = require ("../components/switchLanguageToEn.ts")
 const {switchLanguageToFi} = require ("../components/switchLanguageToFi.ts")
+const {registerNewUser} = require ("../components/registerNewUser.ts")
+
 
 const testsWillBeRunXTimes = 1; //change this to run all tests more then once
 
@@ -28,4 +30,9 @@ for (var i = 0; i < testsWillBeRunXTimes; i++) {
 
    test(`Change language to finnish, ${testNumber}`, async ({ page }) => {
     await switchLanguageToFi(page)
-   })}
+   })
+
+   test.only(`Register new user, ${testNumber}`, async ({ page }) => {
+    await registerNewUser(page)
+  })
+  }
